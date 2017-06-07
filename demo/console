@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+ini_set('display_errors', 1);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$app = new Symfony\Component\Console\Application('PCNTL test');
+
+$app->addCommands([
+    new \Brendt\Command\PcntlSingle(),
+    new \Brendt\Command\PcntlMultiSync(),
+    new \Brendt\Command\PcntlMultiAsync(),
+    new \Brendt\Command\PcntlCommunication(),
+    new \Brendt\Command\PcntlMultiCommunication(),
+    new \Brendt\Command\PcntlProcess(),
+    new \Brendt\Command\ManagerAsync(),
+]);
+
+$app->run();
+
